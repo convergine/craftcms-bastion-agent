@@ -1,12 +1,12 @@
 {
   "name": "criticalgears/craftcms-bastion-agent",
-  "description": "Bastion Agent for CraftCMS",
+  "description": "Bastion Agent plugin for CraftCMS",
   "version": "1.0.0",
   "type": "craft-plugin",
   "license": "MIT",
   "authors": [
     {
-      "name": "Developer Name",
+      "name": "CriticalGears",
       "homepage": "https://criticalgears.io"
     }
   ],
@@ -20,6 +20,6 @@
   },
   "extra": {
     "handle": "bastion-agent",
-    "name": "Bastion Agent for CraftCMS"
+    "name": "Bastion Agent"
   }
 }
