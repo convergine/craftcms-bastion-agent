@@ -3,7 +3,7 @@
   "description": "Bastion Agent plugin for CraftCMS",
   "version": "1.0.0",
   "type": "craft-plugin",
-  "license": "MIT",
+  "license": "proprietary",
   "authors": [
     {
       "name": "CriticalGears",
