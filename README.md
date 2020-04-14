@@ -10,7 +10,7 @@ This plugin requires Craft CMS 3.0.0-RC11 or later.
 
 ## Installation
 
-You can install this plugin from the Plugin Store or with Composer.
+You can install this plugin with Composer.
 
 
 #### With Composer
