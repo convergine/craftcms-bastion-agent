@@ -1,0 +1,28 @@
+{% import '_includes/forms' as forms %}
+
+
+{{ forms.textField({
+    label:'Secret Key',
+    name:'secretToken',
+    value:settings.secretToken,
+    instructions:'Get your secret key from your website page on Citadel.',
+    required:true
+}) }}
+
+
+{{ forms.selectField({
+    label:'Telemetry Collection Interval',
+    name:'telemetryInterval',
+    value:settings.telemetryInterval,
+    options:{
+        '900':'every 15 min',
+        '1800':'every 30 min'
+    }
+}) }}
+
+{{ forms.textField({
+    label:'Telemetry Collection Interval',
+    name:'lastBeatTime',
+    value:settings.lastBeatTime,
+}) }}
+
