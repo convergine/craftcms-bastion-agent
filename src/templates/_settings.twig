@@ -19,10 +19,13 @@
         '1800':'every 30 min'
     }
 }) }}
+<div class="field">
+    <div class="heading">
+        <label>Last request</label>
+    </div>
+    <div class="input ltr">
+        <p>{{ settings.lastBeatTime | date('F jS \\a\\t g:ia') }}</p>
+    </div>
+</div>
 
-{{ forms.textField({
-    label:'Telemetry Collection Interval',
-    name:'lastBeatTime',
-    value:settings.lastBeatTime,
-}) }}
 
