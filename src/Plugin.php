@@ -11,14 +11,12 @@ use craft\events\ModelEvent;
 use criticalgears\bastionagent\models\SettingsModel;
 use criticalgears\bastionagent\services\AgentService;
 use yii\base\Event;
-
-
+ 
 class Plugin extends  \craft\base\Plugin {
 
     const VERSION = '1.0.4';
 
     public $hasCpSettings=true;
-
 
     public function init()
     {
@@ -26,10 +24,16 @@ class Plugin extends  \craft\base\Plugin {
         $settings = $this->getSettings();
 
         // Validate token before save settings
+        /*
+         * TODO add check secret was changed
+         */
         Event::on(Plugin::class, Plugin::EVENT_BEFORE_SAVE_SETTINGS, function (ModelEvent $e) {
 
             //\Craft::dump(\Craft::$app->request->post()['settings']);
-            $secretToken = \Craft::$app->request->post()['settings']['secretToken'];
+            $request = \Craft::$app->request->post();
+            if(!isset($request['settings']['secretToken']))
+                return;
+            $secretToken = $request['settings']['secretToken'];
 
             $response = (new AgentService())->sendValidateRequest($secretToken);
             if($response !== false && isset($response->status) && $response->status){
@@ -41,6 +45,9 @@ class Plugin extends  \craft\base\Plugin {
         },$settings);
 
         Event::on(Plugin::class, Plugin::EVENT_AFTER_SAVE_SETTINGS, function () {
+            $request = \Craft::$app->request->post();
+            if(!isset($request['settings']['secretToken']))
+                return;
             (new AgentService())->sendSettingsRequest();
             //\Craft::dump($settings);
         });

@@ -2,36 +2,25 @@
 
 namespace criticalgears\bastionagent\controllers;
 
+use craft\helpers\App;
 use craft\mail\Mailer;
+use craft\services\ProjectConfig;
 use craft\services\Updates;
 use craft\web\Controller;
 use criticalgears\bastionagent\models\SettingsModel;
 use criticalgears\bastionagent\Plugin;
 use criticalgears\bastionagent\services\AgentService;
+use Imagine\Gd\Imagine;
+use Twig\Environment;
+use Yii;
 
 class AgentController extends Controller
 {
-    protected $allowAnonymous = ['index', 'heartbeat', 'test', 'test1'];
+    protected $allowAnonymous = [ 'heartbeat'];
 
     // Public Methods
     // =========================================================================
 
-    /**
-     * Handle a request going to our module's index action URL,
-     * e.g.: actions/bastion-agent/agent
-     *
-     * @return mixed
-     */
-    public function actionIndex()
-    {
-        $result = 'Welcome to the bastion agent actionIndex() method';
-
-        $request = \Craft::$app->request->post();
-
-        \Craft::$app->response->setStatusCode(200);
-
-        return $this->asJson($request);
-    }
 
     /*
      *
@@ -76,6 +65,17 @@ class AgentController extends Controller
                 'http_accept_encoding' => $_SERVER["HTTP_ACCEPT_ENCODING"],
             ];
 
+            /*
+             * Server info
+             */
+            $sendData["system"] = [
+                'phpVersion' => App::phpVersion(),
+                'osVersion' => PHP_OS . ' ' . php_uname('r'),
+                'yiiVersion' => Yii::getVersion(),
+                'twigVersion' => Environment::VERSION,
+                'imagineVersion' => Imagine::VERSION
+            ];
+
             $response = (new AgentService())->sendAPI($apiURL,$sendData);
 
             if($response!==false){
@@ -93,62 +93,4 @@ class AgentController extends Controller
         return $this->asJson($response);
     }
 
-    public function actionTest1(){
-
-        $response = (new AgentService())->sendValidateRequest();
-        if($response !== false && isset($response->status) && $response->status){
-            \Craft::dump('ok');
-        }else{
-            \Craft::dump('no');
-        }
-
-    }
-    public function actionTest(){
-        $result = 'actionHeartbeat';
-
-        $request = \Craft::$app->request->get();
-
-        $plugin = Plugin::getInstance();
-        $settings = $plugin->getSettings();
-
-
-        $version = \Craft::$app->getVersion();
-
-        //$updates = (new Updates())->getUpdates();
-        $updates = \Craft::$app->updates->getUpdates();
-
-        $lastVersion = $updates->cms->releases[0]->version;
-
-
-
-        \Craft::$app->plugins->savePluginSettings($plugin,['lastBeatTime' => time()]);
-        //\Craft::dump($settings);
-
-        if(isset($request['t'])) {
-            switch ($request['t']) {
-                case 'plugins':
-                    \Craft::dump(\Craft::$app->plugins->getAllPluginInfo());
-                    break;
-                case 'updates':
-                    \Craft::dump($updates->cms->releases);
-                    break;
-                case 'version':
-//                \Craft::dump($version);
-//                \Craft::dump($lastVersion);
-                    echo <<<eerr
-Installed version: $version<br>
-Last version: $lastVersion
-eerr;
-
-                    break;
-
-
-            }
-        }
-
-        //(new AgentService())->sendAPI('https://goggle.com',['foo'=>'bar']);
-
-
-        return $result;
-    }
 }
