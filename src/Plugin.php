@@ -3,7 +3,7 @@ namespace criticalgears\bastionagent;
 
 /*
  * Bastion Plugin for CraftCMS
- * Version 1.0.4
+ * Version 1.0.5
  */
 
 use craft\ckeditor\Field;
@@ -11,10 +11,10 @@ use craft\events\ModelEvent;
 use criticalgears\bastionagent\models\SettingsModel;
 use criticalgears\bastionagent\services\AgentService;
 use yii\base\Event;
- 
+
 class Plugin extends  \craft\base\Plugin {
 
-    const VERSION = '1.0.4';
+    const VERSION = '1.0.5';
 
     public $hasCpSettings=true;
 
@@ -24,32 +24,30 @@ class Plugin extends  \craft\base\Plugin {
         $settings = $this->getSettings();
 
         // Validate token before save settings
-        /*
-         * TODO add check secret was changed
-         */
+
         Event::on(Plugin::class, Plugin::EVENT_BEFORE_SAVE_SETTINGS, function (ModelEvent $e) {
 
-            //\Craft::dump(\Craft::$app->request->post()['settings']);
             $request = \Craft::$app->request->post();
             if(!isset($request['settings']['secretToken']))
                 return;
-            $secretToken = $request['settings']['secretToken'];
 
-            $response = (new AgentService())->sendValidateRequest($secretToken);
-            if($response !== false && isset($response->status) && $response->status){
-                $e->isValid = true;
-            }else{
-                $e->isValid = false;
-                \Craft::$app->getSession()->setNotice('Incorrect token');
+            if($request['settings']['secretToken'] !== $e->data) {
+                $response = (new AgentService())->sendValidateRequest($request['settings']['secretToken']);
+                if ($response !== false && isset($response->status) && $response->status) {
+                    $e->isValid = true;
+                } else {
+                    $e->isValid = false;
+                    \Craft::$app->getSession()->setNotice('Incorrect token');
+                }
             }
-        },$settings);
+        },$settings->secretToken);
 
         Event::on(Plugin::class, Plugin::EVENT_AFTER_SAVE_SETTINGS, function () {
             $request = \Craft::$app->request->post();
             if(!isset($request['settings']['secretToken']))
                 return;
             (new AgentService())->sendSettingsRequest();
-            //\Craft::dump($settings);
+
         });
     }
 
