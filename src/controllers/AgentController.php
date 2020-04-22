@@ -52,7 +52,7 @@ class AgentController extends Controller
         $apiURL = 'https://citadel.bastion.cloud/api/v1/websites/craftcms/heartbeat';
         $sendData = [];
 
-        if(/*time() - $settings->lastBeatTime >= $settings->telemetryInterval*/1){
+        if(time() - $settings->lastBeatTime >= $settings->telemetryInterval){
 
             /*
              * All plugins info
