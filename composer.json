@@ -1,7 +1,7 @@
 {
   "name": "criticalgears/craftcms-bastion-agent",
   "description": "Bastion Agent plugin for CraftCMS",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "type": "craft-plugin",
   "license": "proprietary",
   "authors": [

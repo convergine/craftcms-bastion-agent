@@ -3,7 +3,7 @@ namespace criticalgears\bastionagent;
 
 /*
  * Bastion Plugin for CraftCMS
- * Version 1.0.7
+ * Version 1.0.8
  */
 
 use craft\ckeditor\Field;
@@ -14,7 +14,7 @@ use yii\base\Event;
 
 class Plugin extends  \craft\base\Plugin {
 
-    const VERSION = '1.0.7';
+    const VERSION = '1.0.8';
 
     public $hasCpSettings=true;
 
