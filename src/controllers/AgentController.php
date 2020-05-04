@@ -42,7 +42,7 @@ class AgentController extends Controller
             throw new BadRequestHttpException($message);
         }
 
-        //if( $headers['Token'] != $settings->secretToken ) {
+
         if( $headers['Token'] != hash('sha256', $settings->secretToken) ) {
             $message = 'Unauthenticated access is not allowed.';
 
@@ -63,7 +63,7 @@ class AgentController extends Controller
              * Get latest CraftCMS version
              */
             $updates = \Craft::$app->updates->getUpdates();
-            $lastVersion = $updates->cms->releases[0]->version;
+            $lastVersion = isset($updates->cms->releases[0]->version)?$updates->cms->releases[0]->version:\Craft::$app->getVersion();
 
             /*
              * CraftCMS site info
