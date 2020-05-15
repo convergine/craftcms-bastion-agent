@@ -58,8 +58,6 @@ class AgentService extends Component
         $settings = $plugin->getSettings();
         $sendData = [
             'features' => [
-                /*'collect_analytics' => 'n',
-                'update_type' => 'citadel-cron',*/
                 'update_interval' => $settings->telemetryInterval/60
             ],
             'heartbeat' => [

@@ -21,12 +21,7 @@ class AgentController extends Controller
     protected $allowAnonymous = ['heartbeat'];
 
     public $enableCsrfValidation = false;
-    // Public Methods
-    // =========================================================================
 
-    /*
-     *
-     */
     public function actionHeartbeat()
     {
 
@@ -99,7 +94,7 @@ class AgentController extends Controller
             $response = (new AgentService())->sendAPI($apiURL,$sendData);
 
             if($response!==false){
-                //\Craft::dump($response);
+
                 \Craft::$app->plugins->savePluginSettings($plugin,['lastBeatTime' => time()]);
             }
 

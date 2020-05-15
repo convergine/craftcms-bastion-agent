@@ -24,10 +24,5 @@ class SettingsModel extends Model
     /**
      * @inheritdoc
      */
-    /*public function rules()
-    {
-        return [
-            [['secretToken'], 'email']
-        ];
-    }*/
+
 }
