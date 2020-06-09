@@ -5,6 +5,7 @@ All changes to this plugin will be documented in this file.
 ## 1.1.0 - 2020-05-15
 ### Added
 - Initial release for CraftCMS plugin store;
+
 ### Modified
 - Modified plugin logo in settings;
 
