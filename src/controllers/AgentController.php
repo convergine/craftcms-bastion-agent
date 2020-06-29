@@ -61,6 +61,18 @@ class AgentController extends Controller
             $lastVersion = isset($updates->cms->releases[0]->version)?$updates->cms->releases[0]->version:\Craft::$app->getVersion();
 
             /*
+             * Get latest plugins updates
+             */
+            if(is_array($sendData['plugins'])){
+                foreach ($sendData['plugins'] as $handle=>$data){
+
+                    if(isset($updates->plugins[$handle])){
+                        $sendData['plugins'][$handle]['releases'] = $updates->plugins[$handle]['releases'];
+                    }
+                }
+            }
+
+            /*
              * CraftCMS site info
              */
             $sendData['craftcms'] = [
@@ -89,7 +101,6 @@ class AgentController extends Controller
                 'twigVersion' => Environment::VERSION,
                 'imagineVersion' => Imagine::VERSION
             ];
-
 
             $response = (new AgentService())->sendAPI($apiURL,$sendData);
 
