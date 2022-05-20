@@ -16,7 +16,7 @@ class Plugin extends  \craft\base\Plugin {
 
     const VERSION = '1.1.1';
 
-    public $hasCpSettings=true;
+    public bool $hasCpSettings=true;
 
     public function init()
     {
@@ -51,19 +51,19 @@ class Plugin extends  \craft\base\Plugin {
         });
     }
 
-    protected function createSettingsModel()
+    protected function createSettingsModel(): ?\craft\base\Model
     {
         return new SettingsModel();
     }
 
-    protected function settingsHtml()
+    protected function settingsHtml(): ?string
     {
         return \Craft::$app->getView()->renderTemplate('bastion-agent/_settings',[
             'settings'=>$this->getSettings()
         ]);
     }
 
-    protected function afterInstall()
+    protected function afterInstall(): void
     {
         parent::afterInstall();
 
