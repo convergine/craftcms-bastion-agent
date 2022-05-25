@@ -1,11 +1,11 @@
-# Bastion Agent for Craft CMS 3.x
+# Bastion Agent for Craft CMS 4.x
 
 This is a companion plugin for [Bastion.Cloud](https://bastion.cloud) - managed maintenance service for CraftCMS. Plugin will enable website health telemetry gathering for Bastion service.
 
 
 ## Requirements
 
-This plugin requires Craft CMS 3.1.0 or later. 
+This plugin requires Craft CMS 4.0.0 or later. 
 
 
 ## Installation
@@ -26,7 +26,7 @@ Open your terminal and run the following commands:
         
 3. Then tell Craft to install the plugin
     
-        ./craft install/plugin craftcms-bastion-agent
+        ./craft plugin/install bastion-agent
         
 #### CraftCMS Plugin Store
 

@@ -18,7 +18,7 @@ use yii\web\UnauthorizedHttpException;
 
 class AgentController extends Controller
 {
-    protected $allowAnonymous = ['heartbeat'];
+    protected array|int|bool $allowAnonymous = ['heartbeat'];
 
     public $enableCsrfValidation = false;
 

@@ -2,6 +2,10 @@
 
 All changes to this plugin will be documented in this file.
 
+## 2.0.0 - 2022-05-25
+### Added
+- Added Craft 4 support;
+
 ## 1.1.1 - 2020-06-30
 ### Modified
 - Fixed issue with getting CraftCMS available plugin updates;

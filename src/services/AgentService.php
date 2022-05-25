@@ -20,7 +20,7 @@ class AgentService extends Component
             'home_url' => $this->getSiteURL(),
             'core_version' => \Craft::$app->getVersion(),
             'agent_version' => $plugin::VERSION,
-            'ip_address' => $_SERVER['REMOTE_ADDR']
+            'ip_address' => $_SERVER['REMOTE_ADDR'] ?? null
         ];
 
         $apiURL = 'https://citadel.bastion.cloud/api/v1/agent/activate';
