@@ -1,8 +1,9 @@
 {
   "name": "convergine/craftcms-bastion-agent",
   "description": "Bastion Agent companion plugin for CraftCMS",
-  "version": "2.0.0",
+  "version": "2.4.1",
   "type": "craft-plugin",
+  "license": "proprietary",
   "keywords": [
     "craftcms",
     "maintenance",
@@ -21,7 +22,6 @@
       "email": "info@convergine.com"
     }
   },
-  "license": "proprietary",
   "authors": [
     {
       "name": "Convergine Corp.",
@@ -38,6 +38,9 @@
   },
   "extra": {
     "handle": "bastion-agent",
-    "name": "Bastion Agent"
+    "name": "Bastion Agent",
+    "developerUrl": "https://www.convergine.com",
+    "documentationUrl": "https://github.com/convergine/craftcms-bastion-agent/blob/master/README.md",
+    "changelogUrl": "https://github.com/convergine/craftcms-bastion-agent/blob/master/CHANGELOG.md"
   }
 }
