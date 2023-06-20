@@ -1,7 +1,7 @@
 {
   "name": "convergine/craftcms-bastion-agent",
   "description": "Bastion Agent companion plugin for CraftCMS",
-  "version": "2.4.1",
+  "version": "2.4.0",
   "type": "craft-plugin",
   "license": "proprietary",
   "keywords": [
