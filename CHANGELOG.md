@@ -2,9 +2,11 @@
 
 All changes to this plugin will be documented in this file.
 
-## 2.0.1 - 2023-06-20
+## 2.3.0 - 2023-06-20
 ### Modified
 - Plugin ownership changed to Convergine, with respective references in code;
+- Minor adjustments to accommodate ownership switch for CraftCMS v3.x
+- Switched release versioning schema to {major-product-version}.{major-craft-version}.{product-release-version}
 
 ## 2.0.0 - 2022-05-25
 ### Added

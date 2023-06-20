@@ -1,11 +1,6 @@
 <?php
 namespace convergine\bastionagent;
 
-/*
- * Bastion Plugin for CraftCMS
- * Version 2.0.1
- */
-
 use craft\ckeditor\Field;
 use craft\events\ModelEvent;
 use convergine\bastionagent\models\SettingsModel;
@@ -14,7 +9,7 @@ use yii\base\Event;
 
 class Plugin extends  \craft\base\Plugin {
 
-    const VERSION = '2.0.1';
+    const VERSION = '2.3.0';
 
     public bool $hasCpSettings=true;
 
