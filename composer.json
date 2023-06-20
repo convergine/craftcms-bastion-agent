@@ -1,13 +1,31 @@
 {
-  "name": "criticalgears/craftcms-bastion-agent",
+  "name": "convergine/craftcms-bastion-agent",
   "description": "Bastion Agent companion plugin for CraftCMS",
   "version": "2.0.0",
   "type": "craft-plugin",
+  "keywords": [
+    "craftcms",
+    "maintenance",
+    "bastion",
+    "citadel",
+    "bastion.cloud",
+    "website mainteanance",
+    "ssl monitoring",
+    "uptime monitoring"
+  ],
+  "support": {
+    "issues": "https://github.com/convergine/craftcms-bastion-agent/issues?state=open",
+    "source": "https://github.com/convergine/craftcms-bastion-agent",
+    "docs": "https://github.com/convergine/craftcms-bastion-agent/blob/master/README.md",
+    "support": {
+      "email": "info@convergine.com"
+    }
+  },
   "license": "proprietary",
   "authors": [
     {
-      "name": "CriticalGears",
-      "homepage": "https://criticalgears.com"
+      "name": "Convergine Corp.",
+      "homepage": "https://www.convergine.com"
     }
   ],
   "require": {
@@ -15,7 +33,7 @@
   },
   "autoload": {
     "psr-4": {
-      "criticalgears\\bastionagent\\": "src/"
+      "convergine\\bastionagent\\": "src/"
     }
   },
   "extra": {

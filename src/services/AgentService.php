@@ -1,10 +1,10 @@
 <?php
-namespace criticalgears\bastionagent\services;
+namespace convergine\bastionagent\services;
 
 
 use craft\base\Component;
-use criticalgears\bastionagent\models\SettingsModel;
-use criticalgears\bastionagent\Plugin;
+use convergine\bastionagent\models\SettingsModel;
+use convergine\bastionagent\Plugin;
 use GuzzleHttp\Client;
 
 class AgentService extends Component

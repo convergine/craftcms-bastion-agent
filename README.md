@@ -22,7 +22,7 @@ Open your terminal and run the following commands:
 
 2. Then tell Composer to load the plugin:
 
-        composer require criticalgears/craftcms-bastion-agent
+        composer require convergine/craftcms-bastion-agent
         
 3. Then tell Craft to install the plugin
     
@@ -44,8 +44,8 @@ That's it for the configuration. Bastion service will now be able to get core & 
 
 ## Found a bug?
 
-Check the issues or [open a new one](https://github.com/criticalgears/craftcms-bastion-agent/issues)
+Check the issues or [open a new one](https://github.com/convergine/craftcms-bastion-agent/issues)
 
 
 ---
-Brought to you by [Critical Gears](https://www.criticalgears.com)
+Brought to you by [Convergine](https://www.convergine.com)
