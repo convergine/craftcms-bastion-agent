@@ -1,15 +1,15 @@
 <?php
 
-namespace criticalgears\bastionagent\controllers;
+namespace convergine\bastionagent\controllers;
 
 use craft\helpers\App;
 use craft\mail\Mailer;
 use craft\services\ProjectConfig;
 use craft\services\Updates;
 use craft\web\Controller;
-use criticalgears\bastionagent\models\SettingsModel;
-use criticalgears\bastionagent\Plugin;
-use criticalgears\bastionagent\services\AgentService;
+use convergine\bastionagent\models\SettingsModel;
+use convergine\bastionagent\Plugin;
+use convergine\bastionagent\services\AgentService;
 use Imagine\Gd\Imagine;
 use Twig\Environment;
 use Yii;

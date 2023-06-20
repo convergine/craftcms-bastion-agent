@@ -1,5 +1,5 @@
 <?php
-namespace criticalgears\bastionagent\models;
+namespace convergine\bastionagent\models;
 
 use craft\base\Model;
 
